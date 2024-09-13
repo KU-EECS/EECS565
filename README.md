@@ -1,4 +1,3 @@
-
 ## KU EECS 565 Lab (by Docker)
 
 ### Set up the environment
@@ -56,12 +55,12 @@
         sudo sh get-docker.sh
         ```
 
-        **(Optional) Manage Docker as a Non-Root User**.
+        **[Optional] Manage Docker as a Non-Root User**.
 
         ```shell
         sudo usermod -aG docker $USER
         ```
-        **Note:** If you don't set this up, you'll need to run Docker commands with ``sudo``, as ``sudo docker``.
+        **IMPORTANT:** If you don't set this up, you'll need to run Docker commands with ``sudo``, as ``sudo docker``.
 
 
     - [Installing on macOS](https://docs.docker.com/desktop/install/mac-install/)
@@ -120,63 +119,10 @@ root@69c9825a16d9:/eecs565#
 ### Lab Instructions
 
 #### Mini Project 2
-- Unzip the project files
-    ```shell
-    unzip -q MP2.zip
-    ```
-- Change directory to ``MP2``
-    ```shell
-    cd MP2
-    ```
-Then follow the instructions in ``MP2_Encryption_slides.pdf`` and ``MP2_instruction.pdf`` to do the lab.
-
-**IMPORTANT:** For ``Task 3``, we don’t use the Bless hex editor in Docker. Instead, we use one of the three methods: [hexed.it](https://hexed.it/), ``hexedit`` or ``xxd``.
-- [hexed.it](https://hexed.it/)
-    - Go to the [hexed.it](https://hexed.it/) website using your browser
-    - Click on the ``Open file`` button or drag-and-drop a file into the editor window
-    - Click on any byte in the hex view to select it, then start typing the new hex values you want to replace
-    - Click on the ``Save as`` button to save to download the modified file
-
-- hexedit
-    - Open a file
-        ```
-        hexedit filename.bin
-        ```
-    - Use the arrow keys to navigate to the position you want to edit
-    - Type new values using digits 0-9 and letters A-F. If you enter any other characters, it will display "Unknown command"
-    - Exit using ``Ctrl+X`` and type ``Y`` to save
-
-- xxd
-    - Create a hex dump
-        ```shell
-        xxd filename.bin > temp.hex
-        ```
-    - Edit ``temp.hex`` with your preferred text editor
-        ```shell
-        # using vim
-        vim temp.hex
-
-        # using nano
-        nano temp.hex
-        ```
-    - Convert the hex dump back to binary
-        ```shell
-        xxd -r temp.hex > filename.bin
-        ```
+see [MP2.md](MP2.md)
 
 #### Mini Project 3
-
-- Unzip the project files and change the owner/group
-    ```shell
-    unzip -q MP3.zip && chown seed:seed_g MP3
-    ```
-- Change directory to ``MP3`` and change user to ``seed``
-    ```shell
-    cd MP3 && su seed
-    ```
-    **IMPORTANT:** The password for the user ``seed`` is ``dees``.
-
-Then follow the instructions in ``MP3_Set-UID Program.pdf`` and ``MP3.pdf`` to do the lab.
+see [MP3.md](MP3.md)
 
 
 ### Trouble Shooting
@@ -191,6 +137,7 @@ Then follow the instructions in ``MP3_Set-UID Program.pdf`` and ``MP3.pdf`` to d
    - macOS && Windows
      - Open docker desktop
      - Restart docker desktop
+
 2. If you get docker permission denied error: ``Got permission denied while trying to connect to the Docker daemon socket``
     - Restart Docker Engine
         ```shell
@@ -213,7 +160,11 @@ Then follow the instructions in ``MP3_Set-UID Program.pdf`` and ``MP3.pdf`` to d
     ```
     # mini project 2
     cd MP2
+    ```
 
+    or
+
+    ```
     # mini project 3
     cd MP3
     ```
