@@ -156,7 +156,18 @@ see [MP3.md](MP3.md)
     130734400947520:error:2006D080:BIO routines:BIO_new_file:no such file:../crypto/bio/bss_file.c:76:
     ```
 
-    You’re not in the mini project folder, so the system can’t find the file. You need to change to the mini project directory.
+    You’re not in the mini project folder, so the system can’t find the file.
+
+    First, navigate to the ``EECS565`` directory on your host, then deploy the Docker container within the ``EECS565`` directory.
+
+    ```shell
+    cd EECS565
+    docker build -t eecs565 .
+    docker run -it -v ${PWD}:/eecs565 eecs565
+    ```
+
+    Next, inside the Docker container, navigate to the mini project directory.
+
     ```
     # mini project 2
     cd MP2
