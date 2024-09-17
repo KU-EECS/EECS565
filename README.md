@@ -59,6 +59,7 @@
 
         ```shell
         sudo usermod -aG docker $USER
+        sudo chmod 666 /var/run/docker.sock
         ```
         **IMPORTANT:** If you don't set this up, you'll need to run Docker commands with ``sudo``, as ``sudo docker``.
 
@@ -139,11 +140,11 @@ see [MP3.md](MP3.md)
      - Restart docker desktop
 
 2. If you get docker permission denied error: ``Got permission denied while trying to connect to the Docker daemon socket``
-    - Restart Docker Engine
+    - Change the permission
         ```shell
-        sudo systemctl restart docker
+        sudo chmod 666 /var/run/docker.sock
         ```
-    - Run Docker Commands with sudo
+    - or Run Docker Commands with sudo
         ```shell
         sudo docker run -it -v ${PWD}:/eecs565 eecs565
         ```
