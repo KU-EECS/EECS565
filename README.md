@@ -103,9 +103,17 @@ docker build -t eecs565 .
 ```
 
 #### Deploy a Docker container
-```bash
-docker run -it -v ${PWD}:/eecs565 eecs565
-```
+- Linux && macOS:
+    ```bash
+    docker run -it -v ${PWD}:/eecs565 eecs565
+    ```
+
+- Windows:
+    **IMPORTANT:** You need to input the current working directory of EECS565: e.g. `C:/User/EECS565`
+    ```bash
+    docker run -it -v C:/User/EECS565:/eecs565 eecs565
+    ```
+    You need to change `C:/User/EECS565` to your EECS565 path
 
 **IMPORTANT:** In the Docker container, there is a ``root`` user and a non-root user with the username ``seed`` and password ``dees``.
 
