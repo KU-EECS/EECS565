@@ -1,9 +1,9 @@
 FROM ubuntu:focal
 
-ARG USERNAME=seed
-ARG PASSWORD=dees
-ARG GROUPNAME=seed_g
-ARG DIRNAME=eecs565
+# ARG USERNAME=seed
+# ARG PASSWORD=dees
+# ARG GROUPNAME=seed_g
+# ARG DIRNAME=eecs565
 
 RUN apt-get update && \
     apt-get install -y \
@@ -29,16 +29,16 @@ RUN apt-get update && \
 RUN cd /usr/bin && \
     ln -sf /usr/bin/python3 /usr/local/bin/python 
 
-RUN groupadd $GROUPNAME && \
-    useradd -m -s /bin/bash -g $GROUPNAME $USERNAME && \
-    echo "$USERNAME:$PASSWORD" | chpasswd && \ 
-    usermod -aG sudo $USERNAME 
+RUN groupadd seed_g && \
+    useradd -m -s /bin/bash -g seed_g seed && \
+    echo "seed:dees" | chpasswd && \ 
+    usermod -aG sudo seed 
 
-RUN mkdir /home/$USERNAME/Downloads && chown -R $USERNAME:$GROUPNAME /home/$USERNAME/Downloads
-RUN mkdir /home/$USERNAME/Desktop && chown -R $USERNAME:$GROUPNAME /home/$USERNAME/Desktop
+RUN mkdir /home/seed/Downloads && chown -R seed:seed_g /home/seed/Downloads
+RUN mkdir /home/seed/Desktop && chown -R seed:seed_g /home/seed/Desktop
 
-# USER $USERNAME
+# USER seed
 
-WORKDIR /$DIRNAME
+WORKDIR /eecs565
 
 CMD ["bash"]
