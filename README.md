@@ -109,7 +109,9 @@ docker build -t eecs565 .
     ```
 
 - Windows:
+
     **IMPORTANT:** You need to input the current working directory of EECS565: e.g. `C:/User/EECS565`
+  
     ```bash
     docker run -it -v C:/User/EECS565:/eecs565 eecs565
     ```
